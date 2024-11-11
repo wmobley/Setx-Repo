@@ -4,14 +4,18 @@ import json
 import sys
 from pytablewriter import MarkdownTableWriter
 import toml
-
+import os
 config = toml.load("config.toml")
 
 # The portal can support multiple data releases, each including datasets
 RELEASE_NAME = "index"
 
-dsets = ["tropical_cyclones",]
 
+dsets = []
+for filename in os.listdir("./manifests"):
+    if filename.endswith("-manifest.json"):
+        dset = filename.rsplit("-", 1)[0]  # Split on last "-" and take first part
+        dsets.append(dset)
 
 # from https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
 def sizeof_fmt(num, suffix="B"):
@@ -80,7 +84,7 @@ for dset in dsets:
     # load file list
     # with open(f'{RELEASE_NAME}-{dset}.json') as f: # use this for multiple releases
 
-    manifest_path = f"{dset}-manifest.json"
+    manifest_path = f"manifests/{dset}-manifest.json"
     print(f"Reading manifest: {manifest_path}")
     with open(manifest_path) as f:
         file_data = json.load(f)
@@ -111,6 +115,19 @@ for dset in dsets:
 writer = MarkdownTableWriter(
     headers=dsets_table_header, value_matrix=dsets_table_data, margin=1
 )
-print("> Appending summary table to", RELEASE_NAME + ".md")
-with open(RELEASE_NAME + ".md", "a") as f:
+print("> Writing summary table to", RELEASE_NAME + ".md")
+
+# Read the existing content up to the dataset section
+content = []
+with open(RELEASE_NAME + ".md", "r") as f:
+    for line in f:
+        content.append(line)
+        if "## Datasets" in line:
+            break
+
+# Write back the content plus new dataset table
+with open(RELEASE_NAME + ".md", "w") as f:
+    f.writelines(content)
+    f.write("\n")  # Add a blank line after ## Datasets
     f.write(writer.dumps())
+
