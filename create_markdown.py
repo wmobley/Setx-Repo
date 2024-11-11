@@ -10,7 +10,7 @@ config = toml.load("config.toml")
 # The portal can support multiple data releases, each including datasets
 RELEASE_NAME = "index"
 
-dsets = ["cmb",]
+dsets = ["tropical_cyclones",]
 
 
 # from https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
