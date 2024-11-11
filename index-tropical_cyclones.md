@@ -12,14 +12,14 @@ seo:
 See [data access](./index.html#data-access) on the Data Release page.
 
 Access the data through the  web interface: 
-Download the [file manifest](https://web.corral.tacc.utexas.edu//datasets//tropical_cyclones/manifest.json) for the exact file sizes and checksums.
+Download the [file manifest](./manifests/tropical_cyclones-manifest.json) for the exact file sizes and checksums.
 
 ## Files
 
 - Number of files: 1
 - Total size: 0.0 B
-- [JSON format file manifest](https://web.corral.tacc.utexas.edu//datasets//tropical_cyclones/manifest.json)
+- [JSON format file manifest](./manifests/tropical_cyclones-manifest.json)
 
-|                                                      File Name                                                      | Size  |
-| ------------------------------------------------------------------------------------------------------------------- | ----- |
-| [`downscaled_cmip6_tracks`](https://web.corral.tacc.utexas.edu/setxuifl/tropical_cyclones/downscaled_cmip6_tracks/) | 0.0 B |
+|                             File Name                             | Size  |
+| ----------------------------------------------------------------- | ----- |
+| [`downscaled_cmip6_tracks`](./index-downscaled_cmip6_tracks.html) | 0.0 B |

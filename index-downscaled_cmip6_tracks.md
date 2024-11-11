@@ -12,15 +12,15 @@ seo:
 See [data access](./index.html#data-access) on the Data Release page.
 
 Access the data through the  web interface: 
-Download the [file manifest](https://web.corral.tacc.utexas.edu//datasets//downscaled_cmip6_tracks/manifest.json) for the exact file sizes and checksums.
+Download the [file manifest](./manifests/downscaled_cmip6_tracks-manifest.json) for the exact file sizes and checksums.
 
 ## Files
 
 - Number of files: 2
 - Total size: 0.0 B
-- [JSON format file manifest](https://web.corral.tacc.utexas.edu//datasets//downscaled_cmip6_tracks/manifest.json)
+- [JSON format file manifest](./manifests/downscaled_cmip6_tracks-manifest.json)
 
-|                                                     File Name                                                     | Size  |
-| ----------------------------------------------------------------------------------------------------------------- | ----- |
-| [`historical`](https://web.corral.tacc.utexas.edu/setxuifl/tropical_cyclones/downscaled_cmip6_tracks/historical/) | 0.0 B |
-| [`ssp585`](https://web.corral.tacc.utexas.edu/setxuifl/tropical_cyclones/downscaled_cmip6_tracks/ssp585/)         | 0.0 B |
+|                File Name                | Size  |
+| --------------------------------------- | ----- |
+| [`historical`](./index-historical.html) | 0.0 B |
+| [`ssp585`](./index-ssp585.html)         | 0.0 B |

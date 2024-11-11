@@ -45,7 +45,7 @@ def write_dataset(dset, n_files, data_size, file_table_rows):
     dset_text = "---\n"
     for k, v in metadata.items():
         dset_text += f"{k}: {v.format(dset=dset)}\n"
-
+    print(dset_text)
     dset_text += f"""
 seo:
   type: Dataset
@@ -55,13 +55,13 @@ seo:
 See [data access](./{RELEASE_NAME}.html#data-access) on the Data Release page.
 
 Access the data through the  web interface: 
-Download the [file manifest]({config["DOMAIN"]}/{config["FOLDER"]}/{dset}/manifest.json) for the exact file sizes and checksums.
+Download the [file manifest](./manifests/{dset}-manifest.json) for the exact file sizes and checksums.
 
 ## Files
 
 - Number of files: {n_files}
 - Total size: {data_size}
-- [JSON format file manifest]({config["DOMAIN"]}/{config["FOLDER"]}/{dset}/manifest.json)
+- [JSON format file manifest](./manifests/{dset}-manifest.json)
 
 """
 
@@ -102,7 +102,10 @@ for dset in dsets:
         total_bytes += file_entry["length"]
         fsize = sizeof_fmt(file_entry["length"])
         # freq = get_fileinfo(file_name)
-        flink = f"[`{file_name}`]({file_entry['url']})"
+        if file_entry["length"]>0:
+            flink = f"[`{file_name}`]({file_entry['url']})"
+        else: 
+            flink = f"[`{file_name}`](./index-{file_name}.html)"
         # uncomment to enable visualization of images for the jpg files
         # if flink.endswith(".jpg)") and dset in ["dust", "synch"]:
         #    flink = "!" + flink

@@ -12,13 +12,13 @@ seo:
 See [data access](./index.html#data-access) on the Data Release page.
 
 Access the data through the  web interface: 
-Download the [file manifest](https://web.corral.tacc.utexas.edu//datasets//CESM2-WACCM/manifest.json) for the exact file sizes and checksums.
+Download the [file manifest](./manifests/CESM2-WACCM-manifest.json) for the exact file sizes and checksums.
 
 ## Files
 
 - Number of files: 1
 - Total size: 253.5 MiB
-- [JSON format file manifest](https://web.corral.tacc.utexas.edu//datasets//CESM2-WACCM/manifest.json)
+- [JSON format file manifest](./manifests/CESM2-WACCM-manifest.json)
 
 |                                                                                                          File Name                                                                                                          |   Size    |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
