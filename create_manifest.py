@@ -23,24 +23,21 @@
 import os
 import sys
 import json
-import glob
 import hashlib
-import toml
+import requests
 
-if len(sys.argv) != 2:
-    print(
-        """Usage: python 0_create_manifest.py <base_folder>
+# if len(sys.argv) != 2:
+#     print(
+#         """Usage: python 0_create_manifest.py <base_folder>
           
-base_folder shoud be the local path to the folder pointed by the
-FOLDER variable in the config.toml file."""
-    )
-    sys.exit(1)
-else:
-    base_folder = sys.argv[1]
+# base_folder should be the local path to the folder pointed by the
+# FOLDER variable in the config.toml file."""
+#     )
+#     sys.exit(1)
+# else:
+#     base_folder = sys.argv[1]
 
-endpoint = toml.load("config.toml")
-baseurl = endpoint["DOMAIN"] + "/" + endpoint["FOLDER"]
-
+baseurl = "https://web.corral.tacc.utexas.edu/setxuifl/"
 BUFFER = 4 * 1073741824
 
 for dirpath, dirnames, filenames in os.walk(base_folder):
@@ -48,26 +45,28 @@ for dirpath, dirnames, filenames in os.walk(base_folder):
     for filename in filenames:
         if filename != "manifest.json":
             path = os.path.join(dirpath, filename)
+            url = f"https://{baseurl}/{path}"
+            
+            # Get file via HTTP request
+            response = requests.get(url, stream=True)
             sha512 = hashlib.sha512()
-            with open(path, "rb") as f:
-                while True:
-                    data = f.read(BUFFER)
-                    if not data:
-                        break
-                    sha512.update(data)
-            length = os.stat(path).st_size
-            manifest.append(
-                {
-                    "sha512": sha512.hexdigest(),
-                    "filename": os.path.join(
-                        endpoint["FOLDER"],
-                        dirpath.replace(base_folder + "/", ""),
-                        filename,
-                    ),
-                    "url": f"https://{baseurl}/{path}",
-                    "length": length,
-                }
-            )
+            length = 0
+            
+            for chunk in response.iter_content(chunk_size=BUFFER):
+                if chunk:
+                    length += len(chunk)
+                    sha512.update(chunk)
+            
+            manifest.append({
+                "sha512": sha512.hexdigest(),
+                "filename": os.path.join(
+                    endpoint["FOLDER"],
+                    dirpath.replace(base_folder + "/", ""),
+                    filename,
+                ),
+                "url": url,
+                "length": length,
+            })
 
     if len(filenames) > 0:
         with open(os.path.join(dirpath, "manifest.json"), "w") as f:

@@ -1,0 +1,5 @@
+# {dset} will be replaced with the dataset name
+title="Dataset - SETx-UIFL Datasets {dset}"
+author="Will Mobley"
+description="a series of datasets for  {dset} component"
+date_created="2024-11-8"

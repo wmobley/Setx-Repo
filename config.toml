@@ -1,0 +1,7 @@
+# The following refer to the destination collection, where the data will be copied to and that will serve as backend for the data portal
+UUID='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+FOLDER='/datasets/'
+DOMAIN='https://web.corral.tacc.utexas.edu'
+# collection of the source data, during the tutorial this is the "Cheap and FAIR Tutorial Datasets" collection
+SOURCE_UUID='7352d991-b0a0-49a2-830c-e8fe8c968ca2'
+SOURCE_FOLDER='/setxuifl/'

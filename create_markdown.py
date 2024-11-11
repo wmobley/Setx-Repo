@@ -10,7 +10,7 @@ config = toml.load("config.toml")
 # The portal can support multiple data releases, each including datasets
 RELEASE_NAME = "index"
 
-dsets = ["cmb", "synch", "dust"]
+dsets = ["cmb",]
 
 
 # from https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
@@ -32,7 +32,7 @@ def get_fileinfo(fname):
 
 
 def write_dataset(dset, n_files, data_size, file_table_rows):
-    dset_table_header = ["File Name", "Frequency Band (GHz)", "Size"]
+    dset_table_header = ["File Name",  "Size"]
     writer = MarkdownTableWriter(
         headers=dset_table_header, value_matrix=file_table_rows, margin=1
     )
@@ -50,15 +50,14 @@ seo:
 [Back to release](./{RELEASE_NAME}.html#datasets)
 See [data access](./{RELEASE_NAME}.html#data-access) on the Data Release page.
 
-Access the data through the Globus web interface: [![Download via Globus](images/globus-logo.png)](https://app.globus.org/file-manager?origin_id={config["UUID"]}&origin_path=%2F{config["FOLDER"]}%2F{dset}%2F)
-
-Download the [file manifest](https://{config["DOMAIN"]}/{config["FOLDER"]}/{dset}/manifest.json) for the exact file sizes and checksums.
+Access the data through the  web interface: 
+Download the [file manifest]({config["DOMAIN"]}/{config["FOLDER"]}/{dset}/manifest.json) for the exact file sizes and checksums.
 
 ## Files
 
 - Number of files: {n_files}
 - Total size: {data_size}
-- [JSON format file manifest](https://{config["DOMAIN"]}/{config["FOLDER"]}/{dset}/manifest.json)
+- [JSON format file manifest]({config["DOMAIN"]}/{config["FOLDER"]}/{dset}/manifest.json)
 
 """
 
@@ -98,12 +97,12 @@ for dset in dsets:
         file_name = file_path.split("/")[-1]
         total_bytes += file_entry["length"]
         fsize = sizeof_fmt(file_entry["length"])
-        freq = get_fileinfo(file_name)
+        # freq = get_fileinfo(file_name)
         flink = f"[`{file_name}`]({file_entry['url']})"
         # uncomment to enable visualization of images for the jpg files
         # if flink.endswith(".jpg)") and dset in ["dust", "synch"]:
         #    flink = "!" + flink
-        dset_table_data.append([flink, freq, fsize])
+        dset_table_data.append([flink, fsize])
     dset_size = sizeof_fmt(total_bytes)
     write_dataset(dset, n_files, dset_size, dset_table_data)
     dset_url = f"[Link]({RELEASE_NAME}-{dset}.html)"
