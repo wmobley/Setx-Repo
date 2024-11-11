@@ -1,8 +1,8 @@
 ---
-title: "Cheap and Fair demo Data Repository"
-author: "Cheap and Fair team"
-description: "Demo data repository"
-date_created: "2024-09-12"
+title: "SETx-UIFL Data Repository"
+author: "SEtx Team"
+description: ""
+date_created: "2024-11-11"
 ---
 
 # Southeast Texas Urban Integrated Field Lab (SETx-UIFL) Cheap&FAIR prototype data portal
