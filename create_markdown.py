@@ -11,11 +11,11 @@ config = toml.load("config.toml")
 RELEASE_NAME = "index"
 
 
-dsets = []
-for filename in os.listdir("./manifests"):
-    if filename.endswith("-manifest.json"):
-        dset = filename.rsplit("-", 1)[0]  # Split on last "-" and take first part
-        dsets.append(dset)
+dsets = [""]
+# for filename in os.listdir("./manifests"):
+#     if filename.endswith("-manifest.json"):
+#         dset = filename.rsplit("-", 1)[0]  # Split on last "-" and take first part
+#         dsets.append(dset)
 
 # from https://stackoverflow.com/questions/1094841/get-human-readable-version-of-file-size
 def sizeof_fmt(num, suffix="B"):
