@@ -5,9 +5,9 @@ description: "Demo data repository"
 date_created: "2024-09-12"
 ---
 
-# Cheap&FAIR demo data portal
+# Southeast Texas Urban Integrated Field Lab (SETx-UIFL) Cheap&FAIR prototype data portal
 
-The data hosting/transfer capability and permissions are provided by [Globus](https://globus.org), the Portal website is a discovery, navigation and documentation tool.
+The Southeast Texas Urban Integrated Field Lab has the goal of addressing the following questions: Which processes and variables need to be captured in regional scale hydrological and atmospheric models so that they are representative of the conditions experienced by local communities and help inform adaptation strategies? And how can we understand the linkages between and within natural, built, and social systems in urbanized regions to better support natural and human resilience? The region for the Urban IFL is Southeast Texas (SETx), specifically the Beaumont-Port Arthur region. This urban area represents the climate adaptation needs, population diversity and vulnerability, and ecological richness that characterize many urban centers along the Gulf Coast. Beaumont has experienced continued urban expansion and increased impervious cover over the past several decades; these changes have likely led to increased urban heat island effect and reduced capacity to absorb rainwater, exacerbating existing climate risk. In addition, the Beaumont, Port Arthur area is home to one of the nation's largest petrochemical industrial complexes, which make it more vulnerable to climate-induced disasters capable of significant air toxics releases, in addition to chronic air toxic exposures that can raise the risk of cancer and other adverse health outcomes. Following the model of convergence principles, the SETx-IFL is organized via three cross-cutting Themes, which are linked through data collection strategies and community engagement supported by a Knowledge Management Platform (KMP). Three Activity Areas (AAs) coordinate activities across the Themes and KMP to ensure impacts are useful beyond the SETx-IFL. Broader Impacts of the SETx-IFL include: the co-development of climate scenarios with stakeholders; educational opportunities around convergence science in both formal and informal learning environments; citizen science and participatory research methods to co-design research projects and promote co-learning between residents and scholars; and broadened participation of underrepresented faculty and student groups in science and engineering to undertake community engagement in culturally and ethically appropriate ways.
 
 For technical details about the portal, see the [Technology page](tech.md).
 
@@ -20,11 +20,7 @@ Data access can be restricted dataset by dataset to members of a specific Globus
 
 Data can be downloaded locally just by clicking on a link on the website, the browser will first be redirected to Globus for authentication and then the file will be downloaded locally without the need of having any Globus services running locally.
 
-For downloading a large amount of data to a local or a remote machine machine, it is recommended to install [Globus Connect Personal](https://www.globus.org/globus-connect-personal), this also allows to download a complete hierarchy of folders with just 1 click.
 
-In order to access the data via the Globus Web App, click on the Globus Icon in any of the Release or Dataset pages: ![Download via Globus](images/globus-logo.png)
-
-For downloading data to a Supercomputer, checkout the documentation on how to access the Globus endpoint which is most probably already available, then use that as the destination endpoint in the [Globus web interface](https://app.globus.org/).
 
 ## Datasets
 
@@ -41,11 +37,11 @@ For downloading data to a Supercomputer, checkout the documentation on how to ac
 | [Link](index-CESM2.html)                   | CESM2                   | `1`             | 25.4 MiB   |
 | [Link](index-MPI-ESM1-2-HR.html)           | MPI-ESM1-2-HR           | `1`             | 253.5 MiB  |
 | [Link](index-HadGEM3-GC31-MM.html)         | HadGEM3-GC31-MM         | `1`             | 253.5 MiB  |
-| [Link](index-historical.html)              | historical              | `31`            | 787.4 MiB  |
+| [Link](index-historical.html)              | historical              | `31`            | 0.0 B      |
 | [Link](index-CanESM5.html)                 | CanESM5                 | `1`             | 253.5 MiB  |
 | [Link](index-ACCESS-CM2.html)              | ACCESS-CM2              | `1`             | 253.5 MiB  |
 | [Link](index-IITM-ESM.html)                | IITM-ESM                | `1`             | 253.5 MiB  |
-| [Link](index-ssp585.html)                  | ssp585                  | `28`            | 6.5 GiB    |
+| [Link](index-ssp585.html)                  | ssp585                  | `28`            | 0.0 B      |
 | [Link](index-MPI-ESM1-2-LR.html)           | MPI-ESM1-2-LR           | `1`             | 253.5 MiB  |
 | [Link](index-E3SM-1-1.html)                | E3SM-1-1                | `1`             | 25.4 MiB   |
 | [Link](index-INM-CM4-8.html)               | INM-CM4-8               | `1`             | 253.5 MiB  |
@@ -60,8 +56,8 @@ For downloading data to a Supercomputer, checkout the documentation on how to ac
 | [Link](index-MRI-ESM2-0.html)              | MRI-ESM2-0              | `1`             | 253.5 MiB  |
 | [Link](index-INM-CM5-0.html)               | INM-CM5-0               | `1`             | 253.5 MiB  |
 | [Link](index-CMCC-CM2-SR5.html)            | CMCC-CM2-SR5            | `1`             | 253.5 MiB  |
-| [Link](index-tropical_cyclones.html)       | tropical_cyclones       | `59`            | 7.3 GiB    |
+| [Link](index-tropical_cyclones.html)       | tropical_cyclones       | `1`             | 0.0 B      |
 | [Link](index-KACE-1-0-G.html)              | KACE-1-0-G              | `1`             | 253.5 MiB  |
-| [Link](index-downscaled_cmip6_tracks.html) | downscaled_cmip6_tracks | `59`            | 7.3 GiB    |
+| [Link](index-downscaled_cmip6_tracks.html) | downscaled_cmip6_tracks | `2`             | 0.0 B      |
 | [Link](index-GFDL-CM4.html)                | GFDL-CM4                | `1`             | 253.5 MiB  |
 | [Link](index-EC-Earth3-Veg-LR.html)        | EC-Earth3-Veg-LR        | `1`             | 253.5 MiB  |
